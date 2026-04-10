@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<h2>GDP vs Population</h2>
+<p>Hover over points to explore country-level GDP and population.</p>
+
+<div id="vis"></div>
+
+<script>
+var spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 1000,
+  "height": 600,
+
+  "data": {"url": "data.csv"},
+
+  "mark": {
+    "type": "point",
+    "size": 100
+  },
+
+  "params": [
+    {
+      "name": "highlight",
+      "select": {
+        "type": "point",
+        "on": "mouseover",
+        "fields": ["country"],
+        "clear": "mouseout"
+      }
+    },
+    {
+      "name": "zoom",
+      "select": "interval",
+      "bind": "scales"
+    }
+  ],
+
+  "encoding": {
+    "x": {
+      "field": "gdp",
+      "type": "quantitative",
+      "title": "GDP"
+    },
+    "y": {
+      "field": "population",
+      "type": "quantitative",
+      "title": "Population"
+    },
+
+    "color": {
+      "condition": {
+        "param": "highlight",
+        "value": "orange",
+        "empty": false
+      },
+      "value": "steelblue"
+    },
+
+    "opacity": {
+      "condition": {
+        "param": "highlight",
+        "value": 1
+      },
+      "value": 0.4
+    },
+
+    "tooltip": [
+      {
+        "field": "country",
+        "type": "nominal",
+        "title": "Country"
+      },
+      {
+        "field": "gdp",
+        "type": "quantitative",
+        "title": "GDP",
+        "format": ".2~s"
+      },
+      {
+        "field": "population",
+        "type": "quantitative",
+        "title": "Population",
+        "format": ","
+      }
+    ]
+  }
+};
+
+vegaEmbed('#vis', spec);
+</script>
+
+</body>
+</html>
