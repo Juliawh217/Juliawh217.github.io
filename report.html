@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Visualization Report</title>
+  <style>
+    body {
+      max-width: 900px;
+      margin: 40px auto;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    hr {
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Interactive Visualization Report</h1>
+
+<hr>
+
+<h2>1. Problem</h2>
+<p>
+This project aims to explore the relationship between a country's GDP and its population.
+By visualizing these two variables, users can investigate whether larger populations are associated with higher economic output and identify patterns among countries.
+</p>
+
+<h2>2. Design Decisions</h2>
+
+<h3>Visualization Type</h3>
+<p>
+A scatter plot was chosen because it effectively represents the relationship between two quantitative variables (GDP and population).
+</p>
+
+<h3>Visual Encoding</h3>
+<ul>
+  <li>X-axis: GDP</li>
+  <li>Y-axis: Population</li>
+  <li>Points: Countries</li>
+  <li>Color: Highlight on hover</li>
+  <li>Opacity: Improve readability when points overlap</li>
+</ul>
+
+<h3>Interaction Design</h3>
+<ul>
+  <li><b>Zoom & Pan:</b> Users can drag and scroll to explore different regions.</li>
+  <li><b>Hover Highlight:</b> Points are highlighted when hovered.</li>
+  <li><b>Tooltip:</b> Displays country name, GDP, and population.</li>
+</ul>
+
+<h3>Alternative Designs</h3>
+<p>
+Other options such as bar charts and line charts were considered but rejected due to their limitations in representing relationships between two continuous variables.
+</p>
+
+<hr>
+
+<h2>3. Data Source</h2>
+<p>
+Data is obtained from the World Bank (World Development Indicators):
+</p>
+<ul>
+  <li>GDP (NY.GDP.MKTP.CD)</li>
+  <li>Population (SP.POP.TOTL)</li>
+</ul>
+
+<p>
+The dataset was cleaned to remove aggregate entries such as "World" and "High income".
+</p>
+
+<hr>
+
+<h2>4. Development Process</h2>
+
+<p>
+The project was developed through the following steps:
+</p>
+
+<ol>
+  <li>Data collection from World Bank</li>
+  <li>Data cleaning and merging</li>
+  <li>Building the scatter plot</li>
+  <li>Adding interactive features</li>
+  <li>Improving visual design and layout</li>
+  <li>Deploying using GitHub Pages</li>
+</ol>
+
+<p><b>Total time spent:</b> approximately 10 hours</p>
+
+<p><b>Most time-consuming parts:</b> data cleaning and debugging Vega-Lite configurations.</p>
+
+<hr>
+
+<h2>5. Conclusion</h2>
+
+<p>
+This project demonstrates how interactive visualization can support exploratory data analysis.
+The design focuses on simplicity, clarity, and usability, allowing users to effectively explore global economic patterns.
+</p>
+
+<hr>
+
+<h2>6. Future Improvements</h2>
+
+<ul>
+  <li>Add continent-based color encoding</li>
+  <li>Introduce time dimension (year slider)</li>
+  <li>Use bubble size to represent additional variables</li>
+</ul>
+
+</body>
+</html>
